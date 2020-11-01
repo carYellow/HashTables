@@ -3,7 +3,7 @@ I implemented a two versions of a Hash Table. An open hash table using chaining,
  
 ### File Description
 
-ClosedHashSet.java - implements the Closed Hash set
+ClosedHashSet.java - implements the Closed Hash set\
 CollectionFacadeSet.java - implements a wrapper for sets that we use to compare the efficiency of the
 different sets\
 OpenHashSet.java - implements the Open Hash set\
