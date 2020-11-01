@@ -1,5 +1,5 @@
-#Hash Table 
-I implemented a two versions of a Hash Table. An open hash table using chaining, and a closed hash table with quadratic probing. 
+# Hash Table 
+I implemented a two versions of a Hash Table. An open hash table using chaining, and a closed hash table using quadratic probing. 
  
 ### File Description
 
