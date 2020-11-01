@@ -1,0 +1,71 @@
+mota33
+
+
+=============================
+=      File description     =
+=============================
+ClosedHashSet.java - implements the Closed Hash set
+CollectionFacadeSet.java - implements a wrapper for sets that we use to compare the efficiency of the
+different sets
+OpenHashSet.java - implements the Open Hash set
+SimpleHashSet - an abstract class with basic set features
+SimpleSetPerformanceAnalyzer - implements all the tests to compare running time of the different sets
+
+
+
+=============================
+=          Design           =
+=============================
+Both OpenHashSet and Closed Hash set extend the abstract Class SimpleHashSet that contains all the basic and
+common functionality of all HashSets. SimpleHashSet implements SimpleSet.
+StringLinkedList is a wrapper class for a string linked list inorder to enable the use of an
+array of LinkedLists.
+
+=============================
+=  Implementation details   =
+=============================
+SimpleHashSet - implements clamp because its the same formula for both types of sets
+                the functions that are not the same in both
+ClosedHashSet - Delete: I decided to place a "tombStone" at the index of the deleted item,
+                        that way when searching for a given item in the table the contains
+                        function would not run in to a null value and return false.
+                         To further optimise the code:
+                         When adding a new item if possible i would placce in pace of a tombStone.
+                         Note: TombStone is of static String Type, to  initialise it I used:
+                               tombStone = new String("tombStone"); to create unique pointer in the heap,
+                               this way even if I try to add a string with the value "tombStone" it would not
+                               be "==" to  tombStone.
+OpenHashSet  - I decided to use a wrapper class, StringLinkedList, that has a LinkedList<String>
+and delegates methods to it. I then created an Array of StringLinkedList. To me this seemed like the most
+elegant solution that conforms with the encapsulation principle.
+Note: I decided not to initiate LinkedList in the Array automatically, rather they are only initialised
+when needed. Do this can save run time and memory.
+
+=============================
+=    Answers to questions   =
+=============================
+42
+Discussion of the analysis:
+– Account, in separate, for OpenHashSet’s and ClosedHashSet’s bad results for data1.txt
+It took OpenHashSet_AddData1 = 174373 ms
+        ClosedHashSet_AddData1 = 252958 ms
+
+– Summarize the strengths and weaknesses of each of the data structures as reflected by
+the results:
+a.OpenHash is more efficient at finding a word it contains with multiple collisions
+b.ClosedHash is more efficient at finding a word it contains with no  collisions
+c.OpenHash is more efficient at finding that is does not contain a word.
+d.Finding a word with an avenge amount of collisions takes the same amount of time,
+
+Which would you use for which purposes?
+In a case that I know I will have allot of collisions I would prefer to use the OpenHashing,
+In a case that I want to check often if the set contains a word that it is unlikely to contain
+I would use OpenHash.
+
+
+– How did your implementations compare to Java’s built in HashSet?
+Javas Hash set was more efficient in every aspect
+
+– Not mandatory: Did you find java’s HashSet performance on data1.txt surprising? Can you explain it?
+I think that javas HashSet detects when there are a large amount of collisions, and in such a case stores the
+data in a more cost efficient manner.
